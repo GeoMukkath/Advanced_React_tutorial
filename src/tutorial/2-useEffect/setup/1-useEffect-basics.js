@@ -7,9 +7,18 @@ const UseEffectBasics = () => {
   const upByOne = () => {
     setValue(value + 1);
   };
+
   useEffect(() => {
     console.log("call useEffect");
+    if (value > 0) {
+      document.title = `New messages(${value})`;
+    }
   });
+
+  useEffect(() => {
+    console.log("Second useEffect");
+  }, [value]);
+
   console.log("render component");
   return (
     <>
